@@ -51,8 +51,8 @@ __version__ = "N/A"
 build_date  = "Tue Jul  2 10:35:53 2013"
 testbase    = "http://www.7po.com/interface.php?mod=Android"
 testgood    = "http://ipadlive.cntv.soooner.com/cctv_p2p_hdcctv3.m3u8"
-#testbad     = "rtsp://74.82.62.53:1935/liverepeater/10.stream"
-testbad     = "rtsp://116.199.127.68/dongfang"
+testbad     = "rtsp://74.82.62.53:1935/liverepeater/10.stream"
+#testbad     = "rtsp://116.199.127.68/dongfang"
 
 if sys.version_info[0] > 2:
     str = str
@@ -6095,7 +6095,8 @@ if __name__ == '__main__':
 
         def snapshot():
             """nuomi: take snapshot"""
-            player.video_take_snapshot(0,'.',500,500)    
+            if player.video_take_snapshot(0,'.',0,0) == -1:
+		open('badfile.png','w').close()
 
         def quit_app():
             """Stop and exit"""

@@ -105,6 +105,7 @@ class VideoPlayer:
     def main(self, fname):
         self.vlc.player.set_media(instance.media_new(fname))
 	self.vlc.player.play()
+	print self.vlc.player.video_take_snapshot(0,'.',0,0)
         w = gtk.Window()
         w.add(self.vlc)
         w.show_all()
